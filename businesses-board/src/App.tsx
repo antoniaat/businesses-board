@@ -1,9 +1,9 @@
-function App() {
-  return (
-    <div className="App">
-      hi
-    </div>
-  );
-}
+import Board from './components/board';
+
+const App = () => (
+  <div>
+    <Board />
+  </div>
+);
 
 export default App;
