@@ -5,8 +5,8 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Business from './scripts/components/business';
-import Board from './scripts/components/board';
+import Profile from './scripts/components/business-profile';
+import BusinessProfile from './scripts/components/business';
 import Navigation from './scripts/components/navigation';
 
 const App = () => (
@@ -14,8 +14,8 @@ const App = () => (
     <Navigation />
     <Router>
       <Switch>
-        <Route exact path="/" component={Board} />
-        <Route path="/businesses/:id" component={Business} />
+        <Route exact path="/" component={BusinessProfile} />
+        <Route path="/business/:id" component={Profile} />
       </Switch>
     </Router>
   </>

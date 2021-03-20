@@ -10,7 +10,7 @@ interface ServerResponseProps {
   data: Business[];
 }
 
-const useBusinesses = () => {
+const useBusiness = () => {
   const [serverResponse, setServerResponse] = useState<ServerResponseProps>({
     isLoading: true,
     data: defaultBusinessesData,
@@ -33,4 +33,4 @@ const useBusinesses = () => {
   return serverResponse;
 };
 
-export default useBusinesses;
+export default useBusiness;

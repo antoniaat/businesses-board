@@ -1,7 +1,14 @@
-const Business = () => (
-    <section>
-        Business
-    </section>
-)
+import useBusiness from '../../hooks/use-business';
+import BusinessTable from './business-table';
 
-export default Business;
+const Businesses = () => {
+  const { isLoading, data: business } = useBusiness();
+
+  return (
+    <section className="businesses">
+      <BusinessTable business={business} />
+    </section>
+  );
+};
+
+export default Businesses;
