@@ -1,0 +1,26 @@
+@import "../../base/tools/variables.scss";
+
+.business-table {
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: $primary-box-shadow;
+    border-collapse: collapse;
+
+    &-row {
+        margin: 5px;
+        background: $white;
+    }
+
+    &-cell {
+        padding: 5px;
+    }
+
+    &-header {
+        &-cell {
+            color: $violet-500;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}

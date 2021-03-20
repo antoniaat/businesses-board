@@ -1,7 +1,7 @@
 import useBusiness from '../../hooks/use-business';
 import BusinessTable from './business-table';
 
-const Businesses = () => {
+const Business = () => {
   const { isLoading, data: business } = useBusiness();
 
   return (
@@ -11,4 +11,4 @@ const Businesses = () => {
   );
 };
 
-export default Businesses;
+export default Business;

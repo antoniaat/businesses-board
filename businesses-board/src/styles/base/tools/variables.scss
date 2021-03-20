@@ -8,7 +8,11 @@ $primary-font-default: $primary-font + $regular;
 $primary-font-bold: $primary-font + $bold;
 $primary-font-light: $primary-font + $light;
 
+$primary-box-shadow: 0px 0px 2px 2px #f6f6f6;
+
 $white: #fff;
 
 $gray-100: #f8f8fa;
 $gray-200: #bab6b6;
+
+$violet-500: #b92e80;
