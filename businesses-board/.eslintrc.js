@@ -24,6 +24,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/extensions': 'off',
     'linebreak-style': 0,
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {

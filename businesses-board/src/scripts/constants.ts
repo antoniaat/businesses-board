@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { Business } from './types/business';
 
 const emptyBusiness = {
