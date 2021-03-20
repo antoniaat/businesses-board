@@ -1,3 +1,5 @@
+import './styles/base/styles.scss';
+
 import {
   BrowserRouter as Router,
   Switch,
