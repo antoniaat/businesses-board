@@ -1,11 +1,14 @@
-$regular: '-Regular';
-$light: '-Light';
-$bold: '-Bold';
+$regular: "-Regular";
+$light: "-Light";
+$bold: "-Bold";
 
-$primary-font: 'Lato';
+$primary-font: "Lato";
 
 $primary-font-default: $primary-font + $regular;
 $primary-font-bold: $primary-font + $bold;
 $primary-font-light: $primary-font + $light;
 
 $white: #fff;
+
+$gray-100: #f8f8fa;
+$gray-200: #bab6b6;
