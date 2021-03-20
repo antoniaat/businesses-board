@@ -16,8 +16,4 @@ interface Business {
     address: Adress,
 }
 
-interface BusinessResponse {
-    transactions: Business[];
-}
-
-export type { BusinessResponse, Business };
+export type { Business };

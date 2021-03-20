@@ -2,10 +2,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import Business from './components/business';
-import Board from './components/board';
+import Business from './scripts/components/business';
+import Board from './scripts/components/board';
 
 const App = () => (
   <Router>
