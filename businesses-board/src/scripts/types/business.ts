@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 interface Adress {
     number: string,
     street: string,

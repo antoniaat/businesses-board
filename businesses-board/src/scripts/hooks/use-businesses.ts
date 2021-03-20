@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { defaultBusinessesData } from "../constants";
-import { Business } from "../types/business";
+import { defaultBusinessesData } from '../constants';
+import { Business } from '../types/business';
 
-const getBusinessesEndpoint =
-  "https://api.jsonbin.io/b/60215a7906934b65f530333a";
+const getBusinessesEndpoint = 'https://api.jsonbin.io/b/60215a7906934b65f530333a';
 
 interface ServerResponseProps {
   isLoading: boolean;
@@ -19,13 +18,13 @@ const useBusinesses = () => {
 
   const getData = async () => {
     await axios.get<Business[]>(getBusinessesEndpoint)
-      .then(response => {
+      .then((response) => {
         setServerResponse({
           isLoading: false,
           data: response.data,
         });
       });
-  }
+  };
 
   useEffect(() => {
     getData();
