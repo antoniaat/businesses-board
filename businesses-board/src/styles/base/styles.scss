@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../../assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../../assets/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../../assets/fonts/Inter-Light.ttf') format('truetype');
+}
+
+@import '../base/elements/typography.scss';
