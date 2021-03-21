@@ -6,17 +6,22 @@ import { getNearbyPlaces } from '../../utils/utils';
 
 import ContentLoading from '../content-loading';
 
-const NearbyPlacesList: React.FC<StoreState> = ({ data, profile: { id, address } }) => {
+const BusinessProfileNearbyPlacesList: React.FC<StoreState> = (
+  {
+    data,
+    profile: { id, address },
+  },
+) => {
   const { country } = address;
   const nearbyPlaces = getNearbyPlaces(id, country, data);
 
   return (
-    <ul className="nearby-places-list">
+    <ul className="business-profile-nearby-places-list">
       {
         nearbyPlaces.map(({ id: placeId, name }) => (
           <li
             key={placeId}
-            className="nearby-places-list-item"
+            className="business-profile-nearby-places-listm"
           >
             <ContentLoading text={name} />
           </li>
@@ -28,4 +33,4 @@ const NearbyPlacesList: React.FC<StoreState> = ({ data, profile: { id, address }
 
 const mapStateToProps = (state: StoreState) => (state);
 
-export default connect(mapStateToProps)(NearbyPlacesList);
+export default connect(mapStateToProps)(BusinessProfileNearbyPlacesList);

@@ -9,7 +9,7 @@ import { StoreState } from '../../redux/reducers';
 import { setProfile } from '../../redux/actions';
 import { getById } from '../../utils/utils';
 
-import NearbyPlaces from './nearby-places';
+import BusinessProfileNearbyPlaces from './business-profile-nearby-places';
 import BusinessProfileImage from './business-profile-image';
 import BusinessProfileAddress from './business-profile-address';
 import BusinessProfileContact from './business-profile-contact';
@@ -34,7 +34,7 @@ const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
       <section className="business-profile-content">
         <BusinessProfileAddress />
         <BusinessProfileContact />
-        <NearbyPlaces />
+        <BusinessProfileNearbyPlaces />
       </section>
     </main>
   );
