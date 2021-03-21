@@ -1,23 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Business } from '../../types/business';
+import { StoreState } from '../../redux/reducers';
 import { getNearbyPlaces } from '../../utils/utils';
 import ContentLoading from '../content-loading';
 
-interface Props {
-  data?: Business[],
-  profile?: Business,
-  isLoading?: boolean,
-}
-
-const NearbyPlacesList: React.FC<Props> = ({
-  isLoading = true, data = [], profile = {},
-}) => {
-  const { id, address } = profile;
-  console.log(profile, 'profofo');
-  // const { country } = address;
-
-  const nearbyPlaces = getNearbyPlaces('6758601439', 'United Kingdom', data);
+const NearbyPlacesList: React.FC<StoreState> = ({ isLoading, data, profile }) => {
+  const { id, address: { country } } = profile;
+  const nearbyPlaces = getNearbyPlaces(id, country, data);
 
   return (
     <ul className="nearby-places-list">
@@ -35,10 +24,6 @@ const NearbyPlacesList: React.FC<Props> = ({
   );
 };
 
-const mapStateToProps = (state: {
-  isLoading: boolean,
-  data: Business[],
-  profile: Business
-}) => state;
+const mapStateToProps = (state: StoreState) => (state);
 
 export default connect(mapStateToProps)(NearbyPlacesList);
