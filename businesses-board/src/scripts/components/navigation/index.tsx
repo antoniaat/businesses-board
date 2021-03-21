@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import logo from '../../../assets/images/logo.png';
 
 import '../../../styles/components/navigation/navigation.scss';
-
-import { Link } from 'react-router-dom';
 
 const Navigation = () => (
   <nav className="navigation">
