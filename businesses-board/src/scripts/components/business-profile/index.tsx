@@ -11,7 +11,7 @@ import { getById } from '../../utils/utils';
 
 import NearbyPlaces from './nearby-places';
 import BusinessProfileImage from './business-profile-image';
-import Address from './address';
+import Address from './business-profile-address';
 import Contact from './contact';
 
 interface Props { isLoading: boolean, data: Business[] }
