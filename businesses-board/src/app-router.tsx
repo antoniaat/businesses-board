@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BusinessProfile from './scripts/components/business-profile';
-import Business from './scripts/components/business-table';
-import { Business as BusinessType } from './scripts/types/business';
+import BusinessTable from './scripts/components/business-table';
+import { Business } from './scripts/types/business';
 import { setData, setIsLoading } from './scripts/redux/creators';
 import useBusiness from './scripts/hooks/use-business';
 
@@ -29,7 +29,7 @@ const AppRouter: React.FC<Props> = ({ handleIsLoadingChange, handleDataChange })
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Business} />
+        <Route exact path="/" component={BusinessTable} />
         <Route path="/business/:id" component={BusinessProfile} />
       </Switch>
     </Router>
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
     dispatch(setIsLoading(isLoading));
   },
 
-  handleDataChange(data: BusinessType[]) {
+  handleDataChange(data: Business[]) {
     dispatch(setData(data));
   },
 });
