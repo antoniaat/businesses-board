@@ -11,7 +11,7 @@ import { getById } from '../../utils/utils';
 
 import NearbyPlaces from './nearby-places';
 import BusinessProfileImage from './business-profile-image';
-import Address from './business-profile-address';
+import BusinessProfileAddress from './business-profile-address';
 import Contact from './contact';
 
 interface Props { isLoading: boolean, data: Business[] }
@@ -29,12 +29,14 @@ const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
   }, [isLoading]);
 
   return (
-    <section className="business-profile">
+    <main className="business-profile">
       <BusinessProfileImage />
-      <Address />
-      <Contact />
-      <NearbyPlaces />
-    </section>
+      <section className="business-profile-content">
+        <BusinessProfileAddress />
+        <Contact />
+        <NearbyPlaces />
+      </section>
+    </main>
   );
 };
 

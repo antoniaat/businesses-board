@@ -1,4 +1,11 @@
 .business-profile {
     display: grid;
     grid-template-rows: 450px 1fr;
+   
+    &-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        max-width: 90%;
+        margin: 20px auto;
+    }
 }
