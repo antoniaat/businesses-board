@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { Profile } from '../../types/business-profile';
+import ContentLoading from '../content-loading';
 
 const Address: React.FC<Profile> = ({ profile }) => {
   const {
@@ -10,17 +11,16 @@ const Address: React.FC<Profile> = ({ profile }) => {
     },
   } = profile;
 
+  const streetText = `${number} ${street}`;
+  const countryText = `${country}, ${zip} ${city}`;
+
   return (
     <section className="address">
       <article className="address-street">
-        {number}
-        {street}
+        <ContentLoading text={streetText} />
       </article>
       <article className="address-country">
-        {country}
-        ,
-        {zip}
-        {city}
+        <ContentLoading text={countryText} />
       </article>
     </section>
   );

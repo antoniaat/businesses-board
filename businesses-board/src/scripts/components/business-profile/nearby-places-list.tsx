@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { StoreState } from '../../redux/reducers';
 import { getNearbyPlaces } from '../../utils/utils';
+
 import ContentLoading from '../content-loading';
 
-const NearbyPlacesList: React.FC<StoreState> = ({ isLoading, data, profile }) => {
-  const { id, address: { country } } = profile;
+const NearbyPlacesList: React.FC<StoreState> = ({ data, profile: { id, address } }) => {
+  const { country } = address;
   const nearbyPlaces = getNearbyPlaces(id, country, data);
 
   return (
@@ -16,7 +18,7 @@ const NearbyPlacesList: React.FC<StoreState> = ({ isLoading, data, profile }) =>
             key={placeId}
             className="nearby-places-list-item"
           >
-            <ContentLoading text={name} isLoading={isLoading} />
+            <ContentLoading text={name} />
           </li>
         ))
       }

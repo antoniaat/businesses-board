@@ -3,14 +3,20 @@ import '../../../styles/components/business/business-table.scss';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { BusinessTableProps } from '../../types/business-table';
-import ContentLoading from '../content-loading';
+
 import { StoreState } from '../../redux/reducers';
+import { Business } from '../../types/business';
+
+import ContentLoading from '../content-loading';
 import Header from './header';
+
+interface Props {
+  data: Business[]
+}
 
 const constructBusinessProfileLink = (id: string) => `/business/${id}`;
 
-const BusinessTable: React.FC<BusinessTableProps> = ({ isLoading, data }) => {
+const BusinessTable: React.FC<Props> = ({ data }) => {
   const history = useHistory();
 
   const redirectOnProfile = (id: string) => {
@@ -36,10 +42,10 @@ const BusinessTable: React.FC<BusinessTableProps> = ({ isLoading, data }) => {
               onClick={handleOnClick}
             >
               <td className="business-table-cell">
-                <ContentLoading text={name} isLoading={isLoading} />
+                <ContentLoading text={name} />
               </td>
               <td className="business-table-cell">
-                <ContentLoading text={description} isLoading={isLoading} />
+                <ContentLoading text={description} />
               </td>
             </tr>
           ))
@@ -49,9 +55,6 @@ const BusinessTable: React.FC<BusinessTableProps> = ({ isLoading, data }) => {
   );
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  isLoading: state.isLoading,
-  data: state.data,
-});
+const mapStateToProps = (state: StoreState) => ({ data: state.data });
 
 export default connect(mapStateToProps)(BusinessTable);

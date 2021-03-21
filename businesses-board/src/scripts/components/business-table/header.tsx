@@ -1,29 +1,16 @@
-import '../../../styles/components/business/business-table.scss';
-
-import React from 'react';
-import { connect } from 'react-redux';
 import ContentLoading from '../content-loading';
-import { StoreState } from '../../redux/reducers';
 
-interface Props {
-  isLoading: boolean
-}
-
-const Header: React.FC<Props> = ({ isLoading }) => (
+const Header = () => (
   <thead className="header">
     <tr className="header-row">
       <td className="business-table-header-cell business-table-cell">
-        <ContentLoading text="Name" isLoading={isLoading} />
+        <ContentLoading text="Name" />
       </td>
       <td className="business-table-header-cell business-table-cell">
-        <ContentLoading text="Description" isLoading={isLoading} />
+        <ContentLoading text="Description" />
       </td>
     </tr>
   </thead>
 );
 
-const mapStateToProps = (state: StoreState) => ({
-  isLoading: state.isLoading,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;
