@@ -16,6 +16,6 @@ const emptyBusiness = {
   },
 };
 
-const defaultBusinessesData: Business[] = new Array(10).fill(emptyBusiness);
+const defaultBusinessData: Business[] = new Array(10).fill(emptyBusiness);
 
-export { defaultBusinessesData };
+export { defaultBusinessData };

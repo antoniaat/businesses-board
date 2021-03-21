@@ -1,1 +1,7 @@
-export const SET_IS_LOADING = 'SET_IS_LOADING';
+const SET_IS_LOADING = 'SET_IS_LOADING';
+const SET_DATA = 'SET_DATA';
+
+export {
+  SET_IS_LOADING,
+  SET_DATA,
+};

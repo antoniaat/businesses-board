@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { defaultBusinessesData } from '../utils/constants';
+import { defaultBusinessData } from '../utils/constants';
 import { Business } from '../types/business';
 
 const getBusinessesEndpoint = 'https://api.jsonbin.io/b/60215a7906934b65f530333a';
@@ -13,7 +13,7 @@ interface ServerResponseProps {
 const useBusiness = () => {
   const [serverResponse, setServerResponse] = useState<ServerResponseProps>({
     isLoading: true,
-    data: defaultBusinessesData,
+    data: defaultBusinessData,
   });
 
   const getData = async () => {
