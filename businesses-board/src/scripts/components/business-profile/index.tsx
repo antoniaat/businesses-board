@@ -12,7 +12,7 @@ import { getById } from '../../utils/utils';
 import NearbyPlaces from './nearby-places';
 import BusinessProfileImage from './business-profile-image';
 import BusinessProfileAddress from './business-profile-address';
-import Contact from './contact';
+import BusinessProfileContact from './business-profile-contact';
 
 interface Props { isLoading: boolean, data: Business[] }
 
@@ -33,7 +33,7 @@ const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
       <BusinessProfileImage />
       <section className="business-profile-content">
         <BusinessProfileAddress />
-        <Contact />
+        <BusinessProfileContact />
         <NearbyPlaces />
       </section>
     </main>
