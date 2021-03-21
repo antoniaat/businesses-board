@@ -1,3 +1,5 @@
+import '../../../styles/components/business-profile/business-profile-nearby-places.scss';
+
 import ContentLoading from '../content-loading';
 import BusinessProfileNearbyPlacesList from './business-profile-nearby-places-list';
 

@@ -1,0 +1,14 @@
+@import '../../base/tools/variables.scss';
+
+.business-profile-nearby-places {
+    background: $white;
+    border-radius: 2px;
+    padding: 30px 20px;
+    min-width: 700px;
+
+    &-title {
+        margin: 0;
+        font-size: 30px;
+        font-weight: normal;
+    }
+}
