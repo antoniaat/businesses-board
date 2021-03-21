@@ -1,0 +1,23 @@
+@import "../../base/tools/variables.scss";
+@import "../../base/tools/mixins.scss";
+
+.business-profile-nearby-places-list {
+    display: grid;
+    grid-row-gap: 5px;
+    padding: 0;
+
+    &-item {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 200px max-content;
+        background: $gray-100;
+        padding: 8px 15px;
+
+        &-name,
+        &-description {
+            @include text-overflow(1);
+            
+            color: $gray-700;
+        }
+    }
+}
