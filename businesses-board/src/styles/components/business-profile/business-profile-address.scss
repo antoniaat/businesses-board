@@ -1,6 +1,13 @@
+@import '../../base/tools/variables.scss';
+
 .business-profile-address {
    &-title {
        font-size: 30px;
        font-weight: normal;
+   }
+
+   &-street,
+   &-country {
+       color: $gray-700;
    }
 }
