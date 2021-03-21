@@ -1,23 +1,17 @@
 import '../../../styles/components/business/business-table.scss';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { BusinessTableProps } from '../../types/business-table';
-import { defaultBusinessData } from '../../utils/constants';
 import ContentLoading from '../content-loading';
-import { getById } from '../../utils/utils';
 import { Business } from '../../types/business';
 import { setProfile } from '../../redux/creators';
 
 const constructBusinessProfileLink = (id: string) => `/business/${id}`;
 
 const BusinessTable: React.FC<BusinessTableProps> = (
-  {
-    isLoading = true,
-    data = defaultBusinessData,
-    handleProfileChange = (profile: Business) => profile,
-  },
+  { isLoading = true, data = [] },
 ) => {
   const history = useHistory();
 
@@ -28,9 +22,6 @@ const BusinessTable: React.FC<BusinessTableProps> = (
 
   const handleOnClick = (event: any) => {
     const { id } = event.target.parentElement;
-    const profileData = getById(id, data);
-    handleProfileChange(profileData);
-
     redirectOnProfile(id);
   };
 
