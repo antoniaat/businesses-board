@@ -3,7 +3,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 
-const skeletonWidth = 90;
+const skeletonWidth = 100;
 const skeletonHeight = 15;
 const count = 1;
 

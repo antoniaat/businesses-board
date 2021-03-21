@@ -2,6 +2,13 @@
     margin: 30px auto;
     width: 95%;
 
+    &-loading {
+        width: 15%;
+        margin: 50px auto;
+        padding: 50px;
+        height: fit-content;
+    }
+
     img {
         object-fit: cover;
         width: 100%;
