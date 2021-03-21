@@ -1,5 +1,6 @@
 @import "../../base/tools/variables.scss";
 @import "../../base/tools/mixins.scss";
+@import "../../base/tools/breakpoints.scss";
 
 .business-profile-nearby-places-list {
     display: grid;
@@ -8,16 +9,35 @@
 
     &-item {
         display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 200px max-content;
         background: $gray-100;
+        grid-row-gap: 8px;
         padding: 8px 15px;
+
+        @include for-desktop-up {
+            grid-auto-flow: column;
+            grid-row-gap: 0;
+            grid-template-columns: 200px max-content;
+        }
 
         &-name,
         &-description {
-            @include text-overflow(1);
-            
             color: $gray-700;
+        }
+
+        &-name {
+            font-weight: bold;
+
+            @include for-desktop-up {
+                font-weight: normal;
+            }
+        }
+
+        &-description {
+            @include text-overflow(3);
+
+            @include for-desktop-up {
+                @include text-overflow(1);
+            }
         }
     }
 }
