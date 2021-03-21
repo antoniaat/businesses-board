@@ -1,7 +1,8 @@
 import { Business } from './business';
 
 interface BusinessTableProps {
-    business: Business[],
+    isLoading?: boolean,
+    data?: Business[],
 }
 
 export type { BusinessTableProps };
