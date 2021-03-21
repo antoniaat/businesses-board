@@ -1,3 +1,5 @@
+import '../../../styles/components/business-profile/business-profile-nearby-places-list.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -18,12 +20,17 @@ const BusinessProfileNearbyPlacesList: React.FC<StoreState> = (
   return (
     <ul className="business-profile-nearby-places-list">
       {
-        nearbyPlaces.map(({ id: placeId, name }) => (
+        nearbyPlaces.map(({ id: placeId, name, description }) => (
           <li
             key={placeId}
-            className="business-profile-nearby-places-listm"
+            className="business-profile-nearby-places-list-item"
           >
-            <ContentLoading text={name} />
+            <article className="business-profile-nearby-places-list-item-name">
+              <ContentLoading text={name} />
+            </article>
+            <article className="business-profile-nearby-places-list-item-description">
+              <ContentLoading text={description} />
+            </article>
           </li>
         ))
       }
