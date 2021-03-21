@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { connect, useDispatch } from 'react-redux';
-import NearbyPlaces from './nearby-places';
-import Address from './address';
-import Contact from './contact';
-import HeaderImage from './header-image';
+
 import { getById } from '../../utils/utils';
 import { Business } from '../../types/business';
 import { StoreState } from '../../redux/reducers';
 import { setProfile } from '../../redux/actions';
+
+import NearbyPlaces from './nearby-places';
+import Address from './address';
+import Contact from './contact';
+import HeaderImage from './header-image';
 
 interface Props { isLoading: boolean, data: Business[] }
 
