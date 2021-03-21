@@ -1,4 +1,4 @@
-interface Adress {
+interface Address {
     number: string,
     street: string,
     zip: string,
@@ -13,7 +13,7 @@ interface Business {
     phone: string,
     image: string,
     email: string,
-    address: Adress,
+    address: Address,
 }
 
-export type { Business };
+export type { Address, Business };
