@@ -19,19 +19,13 @@ const constructBusinessProfileLink = (id: string) => `/business/${id}`;
 const BusinessTableRow: React.FC<Props> = ({ id, name, description }) => {
   const history = useHistory();
 
-  const redirectOnProfile = (profileId: string) => {
-    const businessProfileLink = constructBusinessProfileLink(profileId);
+  const handleOnClick = () => {
+    const businessProfileLink = constructBusinessProfileLink(id);
     history.push(businessProfileLink);
-  };
-
-  const handleOnClick = (event: any) => {
-    const { id: targetId } = event.target.parentElement;
-    redirectOnProfile(targetId);
   };
 
   return (
     <tr
-      id={id}
       className="business-table-row"
       onClick={handleOnClick}
     >
