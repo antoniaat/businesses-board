@@ -4,9 +4,7 @@ import { StoreState } from '../../redux/reducers';
 import ContentLoading from '../content-loading';
 import NearbyPlacesList from './nearby-places-list';
 
-interface Props {
-  isLoading: boolean,
-}
+interface Props { isLoading: boolean }
 
 const NearbyPlaces: React.FC<Props> = ({ isLoading }) => (
   <section className="nearby-places">

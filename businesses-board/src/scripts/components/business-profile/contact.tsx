@@ -1,15 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
+import { Profile } from '../../types/business-profile';
 
-interface Props {
-  profile: {
-    phone: string,
-    email: string,
-  },
-}
-
-const Contact: React.FC<Props> = ({ profile }) => {
+const Contact: React.FC<Profile> = ({ profile }) => {
   const { phone, email } = profile;
 
   return (

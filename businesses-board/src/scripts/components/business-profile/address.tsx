@@ -1,23 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
+import { Profile } from '../../types/business-profile';
 
-interface Props {
-  profile: {
-    address: {
-      number: string,
-      street: string,
-      country: string,
-      zip: string,
-      city: string,
-    },
-  }
-}
-
-const Address: React.FC<Props> = ({ profile }) => {
+const Address: React.FC<Profile> = ({ profile }) => {
   const {
-    number, street, country, zip, city,
-  } = profile.address || {};
+    address: {
+      number, street, country, zip, city,
+    },
+  } = profile;
 
   return (
     <section className="address">

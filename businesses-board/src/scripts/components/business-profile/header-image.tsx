@@ -1,15 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
+import { Profile } from '../../types/business-profile';
 
-interface Props {
-  profile: {
-    image: string,
-    name: string,
-  },
-}
-
-const HeaderImage: React.FC<Props> = ({ profile }) => {
+const HeaderImage: React.FC<Profile> = ({ profile }) => {
   const { image, name } = profile;
 
   return (
