@@ -1,48 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getById } from '../../utils/utils';
-import { Business } from '../../types/business';
 import NearbyPlaces from './nearby-places';
 import Address from './address';
 import Contact from './contact';
+import HeaderImage from './header-image';
+import { getById } from '../../utils/utils';
+import { Business } from '../../types/business';
+import { setProfile } from '../../redux/creators';
 
-interface BusinessProfileProps {
-  data: Business[],
+interface Props {
+  isLoading?: boolean,
+  data?: Business[],
+  handleProfileChange: Function,
 }
 
-const BusinessProfile: React.FC<BusinessProfileProps> = ({ data }) => {
+const BusinessProfile: React.FC<Props> = (
+  {
+    isLoading = true,
+    data = [],
+    handleProfileChange = (profile: Business) => profile,
+  },
+) => {
   const params: { id: string } = useParams();
   const { id } = params;
 
-  const {
-    name,
-    phone,
-    image,
-    email,
-    address,
-  } = getById(id, data);
+  console.log(isLoading, ' isLoading update');
 
-  const {
-    number, street, zip, city, country,
-  } = address;
+  useEffect(() => {
+    if (!isLoading) {
+      const profile = getById(id, data);
+      handleProfileChange(profile);
+    }
+  }, [isLoading]);
 
   return (
-    <section>
-      <img src={image} alt={name} />
-      <Address
-        number={number}
-        street={street}
-        zip={zip}
-        city={city}
-        country={country}
-      />
-      <Contact email={email} phone={phone} />
+    <section className="business-profile">
+      <HeaderImage />
+      <Address />
+      <Contact />
       <NearbyPlaces />
     </section>
   );
 };
 
-const mapStateToProps = (state: { data: Business[]}) => state;
+const mapStateToProps = (state: Object) => state;
 
-export default connect(mapStateToProps)(BusinessProfile);
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleProfileChange(profile: Business) {
+    dispatch(setProfile(profile));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BusinessProfile);

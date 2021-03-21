@@ -1,19 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Business } from '../../types/business';
 
 interface Props {
-  phone: string,
-  email: string,
+  profile: {
+    phone: string,
+    email: string,
+  },
 }
 
-const Contact: React.FC<Props> = ({ phone, email }) => (
-  <section className="contact">
-    <article className="contact-phone">
-      {phone}
-    </article>
-    <article className="contact-email">
-      {email}
-    </article>
-  </section>
-);
+const Contact: React.FC<Props> = ({ profile = {} }) => {
+  const { phone, email } = profile;
 
-export default Contact;
+  return (
+    <section className="contact">
+      <article className="contact-phone">
+        {phone}
+      </article>
+      <article className="contact-email">
+        {email}
+      </article>
+    </section>
+  );
+};
+
+const mapStateToProps = (state: { profile: Business }) => state;
+
+export default connect(mapStateToProps)(Contact);

@@ -1,21 +1,40 @@
 import React from 'react';
-import { Address as AddressType } from '../../types/business';
+import { connect } from 'react-redux';
+import { Business } from '../../types/business';
 
-const Address: React.FC<AddressType> = ({
-  number, street, zip, city, country,
-}) => (
-  <section className="address">
-    <article className="address-street">
-      {number}
-      {street}
-    </article>
-    <article className="address-country">
-      {country}
-      ,
-      {zip}
-      {city}
-    </article>
-  </section>
-);
+interface Props {
+  profile?: {
+    address?: {
+      number: string,
+      street: string,
+      country: string,
+      zip: string,
+      city: string,
+    },
+  }
+}
 
-export default Address;
+const Address: React.FC<Props> = ({ profile = {} }) => {
+  const {
+    number, street, country, zip, city,
+  } = profile.address || {};
+
+  return (
+    <section className="address">
+      <article className="address-street">
+        {number}
+        {street}
+      </article>
+      <article className="address-country">
+        {country}
+        ,
+        {zip}
+        {city}
+      </article>
+    </section>
+  );
+};
+
+const mapStateToProps = (state: { profile: Business }) => state;
+
+export default connect(mapStateToProps)(Address);
