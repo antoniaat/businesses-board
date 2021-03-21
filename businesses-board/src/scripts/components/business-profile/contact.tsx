@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Business } from '../../types/business';
+import { StoreState } from '../../redux/reducers';
 
 interface Props {
   profile: {
@@ -9,7 +9,7 @@ interface Props {
   },
 }
 
-const Contact: React.FC<Props> = ({ profile = {} }) => {
+const Contact: React.FC<Props> = ({ profile }) => {
   const { phone, email } = profile;
 
   return (
@@ -24,6 +24,8 @@ const Contact: React.FC<Props> = ({ profile = {} }) => {
   );
 };
 
-const mapStateToProps = (state: { profile: Business }) => state;
+const mapStateToProps = (state: StoreState) => ({
+  profile: state.profile,
+});
 
 export default connect(mapStateToProps)(Contact);

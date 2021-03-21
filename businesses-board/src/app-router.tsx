@@ -6,24 +6,19 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import BusinessProfile from './scripts/components/business-profile';
 import BusinessTable from './scripts/components/business-table';
-import { Business } from './scripts/types/business';
-import { setData, setIsLoading } from './scripts/redux/creators';
 import useBusiness from './scripts/hooks/use-business';
+import { setData, setIsLoading } from './scripts/redux/actions';
 
-interface Props {
-  handleIsLoadingChange: Function,
-  handleDataChange: Function,
-}
-
-const AppRouter: React.FC<Props> = ({ handleIsLoadingChange, handleDataChange }) => {
+const AppRouter = () => {
   const { isLoading, data } = useBusiness();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    handleIsLoadingChange(isLoading);
-    handleDataChange(data);
+    dispatch(setIsLoading({ payload: isLoading }));
+    dispatch(setData({ payload: data }));
   }, [isLoading]);
 
   return (
@@ -36,14 +31,4 @@ const AppRouter: React.FC<Props> = ({ handleIsLoadingChange, handleDataChange })
   );
 };
 
-const mapDispatchToProps = (dispatch: Function) => ({
-  handleIsLoadingChange(isLoading: boolean) {
-    dispatch(setIsLoading(isLoading));
-  },
-
-  handleDataChange(data: Business[]) {
-    dispatch(setData(data));
-  },
-});
-
-export default connect(null, mapDispatchToProps)(AppRouter);
+export default AppRouter;

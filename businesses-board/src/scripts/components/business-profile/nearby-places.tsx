@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { StoreState } from '../../redux/reducers';
 import ContentLoading from '../content-loading';
 import NearbyPlacesList from './nearby-places-list';
 
@@ -16,6 +17,8 @@ const NearbyPlaces: React.FC<Props> = ({ isLoading }) => (
   </section>
 );
 
-const mapStateToProps = (state: { isLoading: boolean }) => state;
+const mapStateToProps = (state: StoreState) => ({
+  isLoading: state.isLoading,
+});
 
 export default connect(mapStateToProps)(NearbyPlaces);

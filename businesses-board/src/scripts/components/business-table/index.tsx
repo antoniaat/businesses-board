@@ -5,14 +5,12 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { BusinessTableProps } from '../../types/business-table';
 import ContentLoading from '../content-loading';
-import { Business } from '../../types/business';
-import { setProfile } from '../../redux/creators';
+import { StoreState } from '../../redux/reducers';
+import Header from './header';
 
 const constructBusinessProfileLink = (id: string) => `/business/${id}`;
 
-const BusinessTable: React.FC<BusinessTableProps> = (
-  { isLoading = true, data = [] },
-) => {
+const BusinessTable: React.FC<BusinessTableProps> = ({ isLoading, data }) => {
   const history = useHistory();
 
   const redirectOnProfile = (id: string) => {
@@ -27,16 +25,7 @@ const BusinessTable: React.FC<BusinessTableProps> = (
 
   return (
     <table className="business-table">
-      <thead className="business-table-header">
-        <tr className="business-table-row">
-          <td className="business-table-header-cell business-table-cell">
-            <ContentLoading text="Name" isLoading={isLoading} />
-          </td>
-          <td className="business-table-header-cell business-table-cell">
-            <ContentLoading text="Description" isLoading={isLoading} />
-          </td>
-        </tr>
-      </thead>
+      <Header />
       <tbody className="business-table-content">
         {
           data.map(({ id, name, description }) => (
@@ -60,12 +49,9 @@ const BusinessTable: React.FC<BusinessTableProps> = (
   );
 };
 
-const mapStateToProps = (state: Object) => state;
-
-const mapDispatchToProps = (dispatch: Function) => ({
-  handleProfileChange(profile: Business) {
-    dispatch(setProfile(profile));
-  },
+const mapStateToProps = (state: StoreState) => ({
+  isLoading: state.isLoading,
+  data: state.data,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BusinessTable);
+export default connect(mapStateToProps)(BusinessTable);

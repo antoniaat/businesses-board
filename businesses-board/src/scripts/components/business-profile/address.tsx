@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Business } from '../../types/business';
+import { StoreState } from '../../redux/reducers';
 
 interface Props {
-  profile?: {
-    address?: {
+  profile: {
+    address: {
       number: string,
       street: string,
       country: string,
@@ -14,7 +14,7 @@ interface Props {
   }
 }
 
-const Address: React.FC<Props> = ({ profile = {} }) => {
+const Address: React.FC<Props> = ({ profile }) => {
   const {
     number, street, country, zip, city,
   } = profile.address || {};
@@ -35,6 +35,8 @@ const Address: React.FC<Props> = ({ profile = {} }) => {
   );
 };
 
-const mapStateToProps = (state: { profile: Business }) => state;
+const mapStateToProps = (state: StoreState) => ({
+  profile: state.profile,
+});
 
 export default connect(mapStateToProps)(Address);
