@@ -4,15 +4,15 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { connect, useDispatch } from 'react-redux';
 
-import { getById } from '../../utils/utils';
 import { Business } from '../../types/business';
 import { StoreState } from '../../redux/reducers';
 import { setProfile } from '../../redux/actions';
+import { getById } from '../../utils/utils';
 
 import NearbyPlaces from './nearby-places';
+import BusinessProfileImage from './business-profile-image';
 import Address from './address';
 import Contact from './contact';
-import HeaderImage from './header-image';
 
 interface Props { isLoading: boolean, data: Business[] }
 
@@ -30,7 +30,7 @@ const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
 
   return (
     <section className="business-profile">
-      <HeaderImage />
+      <BusinessProfileImage />
       <Address />
       <Contact />
       <NearbyPlaces />
