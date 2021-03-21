@@ -1,4 +1,4 @@
-import '../../../styles/components/business/business-table-row.scss';
+import '../../../styles/components/business-table/business-table-row.scss';
 
 import React from 'react';
 import { useHistory } from 'react-router-dom';

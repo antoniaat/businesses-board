@@ -1,4 +1,4 @@
-import '../../../styles/components/business/business-table.scss';
+import '../../../styles/components/business-table/business-table.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';

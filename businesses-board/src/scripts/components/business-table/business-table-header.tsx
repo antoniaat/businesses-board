@@ -1,4 +1,4 @@
-import '../../../styles/components/business/business-table-header.scss';
+import '../../../styles/components/business-table/business-table-header.scss';
 
 import ContentLoading from '../content-loading';
 
