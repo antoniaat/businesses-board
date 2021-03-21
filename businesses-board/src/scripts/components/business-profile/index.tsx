@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Business } from '../../types/business';
 import { defaultBusinessData } from '../../utils/constants';
 import Address from './address';
+import Contact from './contact';
+import NearbyPlaces from './nearby-places';
 
 interface BusinessProfileProps {
   isLoading?: boolean,
@@ -14,6 +16,13 @@ const getById = (
   id: string,
   profiles: Business[],
 ) => profiles.filter((el) => el.id === id)[0];
+
+const getNearbyPlaces = (
+  id: string,
+  country: string,
+  profiles: Business[],
+) => profiles.filter(({ id: profileId, address }) => profileId !== id
+&& address.country === country);
 
 const BusinessProfile: React.FC<BusinessProfileProps> = (
   {
@@ -37,6 +46,8 @@ const BusinessProfile: React.FC<BusinessProfileProps> = (
     number, street, zip, city, country,
   } = address;
 
+  const nearbyPlaces = getNearbyPlaces(id, country, data);
+
   return (
     <section>
       <img src={image} alt={name} />
@@ -48,9 +59,8 @@ const BusinessProfile: React.FC<BusinessProfileProps> = (
         city={city}
         country={country}
       />
-      {/* <Contact email={email} phone={phone} /> */}
-      {' '}
-      {params.id}
+      <Contact email={email} phone={phone} />
+      <NearbyPlaces places={nearbyPlaces} />
     </section>
   );
 };
