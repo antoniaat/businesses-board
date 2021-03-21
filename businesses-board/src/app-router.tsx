@@ -11,6 +11,7 @@ import BusinessProfile from './scripts/components/business-profile';
 import BusinessTable from './scripts/components/business-table';
 import useBusiness from './scripts/hooks/use-business';
 import { setData, setIsLoading } from './scripts/redux/actions';
+import Navigation from './scripts/components/navigation';
 
 const AppRouter = () => {
   const { isLoading, data } = useBusiness();
@@ -23,6 +24,7 @@ const AppRouter = () => {
 
   return (
     <Router>
+      <Navigation />
       <Switch>
         <Route exact path="/" component={BusinessTable} />
         <Route path="/business/:id" component={BusinessProfile} />
