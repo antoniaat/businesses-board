@@ -1,3 +1,5 @@
+import '../../../styles/components/business-profile/business-profile.scss';
+
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { connect, useDispatch } from 'react-redux';
