@@ -10,10 +10,7 @@ interface BusinessProps {
   handleDataChange: Function,
 }
 
-const Business: React.FC<BusinessProps> = ({
-  handleIsLoadingChange,
-  handleDataChange,
-}) => {
+const Business: React.FC<BusinessProps> = ({ handleIsLoadingChange, handleDataChange }) => {
   const { isLoading, data: business } = useBusiness();
 
   useEffect(() => {
@@ -22,19 +19,19 @@ const Business: React.FC<BusinessProps> = ({
   }, [isLoading]);
 
   return (
-    <section className="businesses">
+    <section className="business">
       <BusinessTable />
     </section>
   );
 };
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  handleIsLoadingChange(value: boolean) {
-    dispatch(setIsLoading(value));
+  handleIsLoadingChange(isLoading: boolean) {
+    dispatch(setIsLoading(isLoading));
   },
 
-  handleDataChange(value: BusinessType[]) {
-    dispatch(setData(value));
+  handleDataChange(data: BusinessType[]) {
+    dispatch(setData(data));
   },
 });
 
