@@ -28,7 +28,7 @@ const Business: React.FC<BusinessProps> = ({
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   handleIsLoadingChange(value: boolean) {
     dispatch(setIsLoading(value));
   },
