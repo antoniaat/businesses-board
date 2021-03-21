@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { Business } from '../../types/business';
 
-import Header from './header';
+import BusinessTableHeader from './business-table-header';
 import Row from './row';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 
 const BusinessTable: React.FC<Props> = ({ data }) => (
   <table className="business-table">
-    <Header />
+    <BusinessTableHeader />
     <tbody className="business-table-content">
       {
           data.map(({ id, name, description }) => (

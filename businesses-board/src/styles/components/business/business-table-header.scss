@@ -1,0 +1,14 @@
+@import "../../base/tools/variables.scss";
+
+.business-table-header {
+    &-row {
+        background: $white;
+    }
+
+    &-cell {
+        padding: 20px 30px;
+        color: $violet-500;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
