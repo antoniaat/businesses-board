@@ -1,7 +1,9 @@
 const SET_IS_LOADING = 'SET_IS_LOADING';
 const SET_DATA = 'SET_DATA';
+const SET_PROFILE = 'SET_PROFILE';
 
 export {
   SET_IS_LOADING,
   SET_DATA,
+  SET_PROFILE,
 };
