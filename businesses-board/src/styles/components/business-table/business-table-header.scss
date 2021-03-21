@@ -1,4 +1,5 @@
 @import "../../base/tools/variables.scss";
+@import "../../base/tools/breakpoints.scss";
 
 .business-table-header {
     &-row {
@@ -6,9 +7,13 @@
     }
 
     &-cell {
-        padding: 20px 30px;
+        padding: 10px;
         color: $violet-500;
         text-transform: uppercase;
         font-weight: bold;
+
+        @include for-tablet-portrait-up {
+            padding: 20px 30px;
+        }
     }
 }

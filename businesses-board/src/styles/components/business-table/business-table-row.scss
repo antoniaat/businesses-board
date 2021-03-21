@@ -1,4 +1,6 @@
 @import "../../base/tools/variables.scss";
+@import "../../base/tools/breakpoints.scss";
+@import "../../base/tools/mixins.scss";
 
 .business-table-row {
     background: $white;
@@ -10,6 +12,10 @@
     }
 
     &-cell {
-        padding: 10px 20px 10px 30px;
+        padding: 10px;
+
+        @include for-tablet-portrait-up {
+            padding: 10px 20px 10px 30px;
+        }
     }
 }
