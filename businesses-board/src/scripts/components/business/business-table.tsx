@@ -48,24 +48,22 @@ const BusinessTable: React.FC<BusinessTableProps> = (
       </thead>
       <tbody className="business-table-content">
         {
-            data.map(({
-              id, name, description, address,
-            }) => (
-              <tr
-                id={id}
-                key={id}
-                className="business-table-row"
-                onClick={handleOnClick}
-              >
-                <td className="business-table-cell">
-                  <ContentLoading text={name} isLoading={isLoading} />
-                </td>
-                <td className="business-table-cell">
-                  <ContentLoading text={address.country} isLoading={isLoading} />
-                </td>
-              </tr>
-            ))
-          }
+          data.map(({ id, name, description }) => (
+            <tr
+              id={id}
+              key={id}
+              className="business-table-row"
+              onClick={handleOnClick}
+            >
+              <td className="business-table-cell">
+                <ContentLoading text={name} isLoading={isLoading} />
+              </td>
+              <td className="business-table-cell">
+                <ContentLoading text={description} isLoading={isLoading} />
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   );
