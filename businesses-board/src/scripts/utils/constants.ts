@@ -1,4 +1,4 @@
-import { Business } from './types/business';
+import { Business } from '../types/business';
 
 const emptyBusiness = {
   id: '',

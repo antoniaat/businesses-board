@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { defaultBusinessesData } from '../constants';
+import { defaultBusinessesData } from '../utils/constants';
 import { Business } from '../types/business';
 
 const getBusinessesEndpoint = 'https://api.jsonbin.io/b/60215a7906934b65f530333a';
