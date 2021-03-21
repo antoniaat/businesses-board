@@ -6,26 +6,32 @@ import { connect } from 'react-redux';
 import { BusinessTableProps } from '../../types/business-table';
 import { defaultBusinessData } from '../../utils/constants';
 import ContentLoading from '../content-loading';
+import { getById } from '../../utils/utils';
+import { Business } from '../../types/business';
+import { setProfile } from '../../redux/creators';
+
+const constructBusinessProfileLink = (id: string) => `/business/${id}`;
 
 const BusinessTable: React.FC<BusinessTableProps> = (
   {
     isLoading = true,
     data = defaultBusinessData,
+    handleProfileChange = (profile: Business) => profile,
   },
 ) => {
   const history = useHistory();
-  const [businesses, setBusinesses] = useState(defaultBusinessData);
 
-  useEffect(() => {
-    setBusinesses(data);
-  }, [isLoading]);
+  const redirectOnProfile = (id: string) => {
+    const businessProfileLink = constructBusinessProfileLink(id);
+    history.push(businessProfileLink);
+  };
 
   const handleOnClick = (event: any) => {
-    const element = event.target as HTMLElement;
-    const id = (element.parentElement?.id as string);
-    const businessLink = `/business/${id}`;
+    const { id } = event.target.parentElement;
+    const profileData = getById(id, data);
+    handleProfileChange(profileData);
 
-    history.push(businessLink);
+    redirectOnProfile(id);
   };
 
   return (
@@ -42,22 +48,24 @@ const BusinessTable: React.FC<BusinessTableProps> = (
       </thead>
       <tbody className="business-table-content">
         {
-          businesses.map(({ id, name, description }) => (
-            <tr
-              id={id}
-              key={id}
-              className="business-table-row"
-              onClick={handleOnClick}
-            >
-              <td className="business-table-cell">
-                <ContentLoading text={name} isLoading={isLoading} />
-              </td>
-              <td className="business-table-cell">
-                <ContentLoading text={description} isLoading={isLoading} />
-              </td>
-            </tr>
-          ))
-        }
+            data.map(({
+              id, name, description, address,
+            }) => (
+              <tr
+                id={id}
+                key={id}
+                className="business-table-row"
+                onClick={handleOnClick}
+              >
+                <td className="business-table-cell">
+                  <ContentLoading text={name} isLoading={isLoading} />
+                </td>
+                <td className="business-table-cell">
+                  <ContentLoading text={address.country} isLoading={isLoading} />
+                </td>
+              </tr>
+            ))
+          }
       </tbody>
     </table>
   );
@@ -65,4 +73,10 @@ const BusinessTable: React.FC<BusinessTableProps> = (
 
 const mapStateToProps = (state: Object) => state;
 
-export default connect(mapStateToProps)(BusinessTable);
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleProfileChange(profile: Business) {
+    dispatch(setProfile(profile));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BusinessTable);

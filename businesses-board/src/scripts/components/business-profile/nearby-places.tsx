@@ -1,23 +1,21 @@
 import React from 'react';
-import { Business } from '../../types/business';
+import { connect } from 'react-redux';
+import ContentLoading from '../content-loading';
+import NearbyPlacesList from './nearby-places-list';
 
 interface Props {
-  places: Business[]
+  isLoading: boolean,
 }
 
-const NearbyPlaces: React.FC<Props> = ({ places }) => (
+const NearbyPlaces: React.FC<Props> = ({ isLoading }) => (
   <section className="nearby-places">
-    <ul>
-      {
-        places.map((place) => (
-          <li key={place.id}>
-            {place.name}
-          </li>
-        ))
-      }
-    </ul>
-
+    <h4 className="nearby-places-title">
+      <ContentLoading text="Nearby Places" isLoading={isLoading} />
+    </h4>
+    <NearbyPlacesList />
   </section>
 );
 
-export default NearbyPlaces;
+const mapStateToProps = (state: { isLoading: boolean }) => state;
+
+export default connect(mapStateToProps)(NearbyPlaces);

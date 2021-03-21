@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getById, getNearbyPlaces } from '../../utils/utils';
+import { getById } from '../../utils/utils';
 import { Business } from '../../types/business';
 import NearbyPlaces from './nearby-places';
 import Address from './address';
@@ -27,8 +27,6 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({ data }) => {
     number, street, zip, city, country,
   } = address;
 
-  const nearbyPlaces = getNearbyPlaces(id, country, data);
-
   return (
     <section>
       <img src={image} alt={name} />
@@ -40,7 +38,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({ data }) => {
         country={country}
       />
       <Contact email={email} phone={phone} />
-      <NearbyPlaces places={nearbyPlaces} />
+      <NearbyPlaces />
     </section>
   );
 };
