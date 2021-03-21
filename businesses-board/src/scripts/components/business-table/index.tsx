@@ -7,7 +7,7 @@ import { StoreState } from '../../redux/reducers';
 import { Business } from '../../types/business';
 
 import BusinessTableHeader from './business-table-header';
-import Row from './row';
+import Row from './business-table-row';
 
 interface Props {
   data: Business[]
