@@ -1,10 +1,9 @@
 import { Business } from '../types/business';
-import { defaultBusinessData } from '../utils/constants';
 import { SET_DATA, SET_IS_LOADING } from './actions';
 
 const INITIAL_STATE = {
   isLoading: true,
-  data: defaultBusinessData,
+  data: [],
 };
 
 interface ActionType {
