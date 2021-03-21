@@ -19,11 +19,11 @@ interface Props {
 }
 
 const AppRouter: React.FC<Props> = ({ handleIsLoadingChange, handleDataChange }) => {
-  const { isLoading, data: business } = useBusiness();
+  const { isLoading, data } = useBusiness();
 
   useEffect(() => {
     handleIsLoadingChange(isLoading);
-    handleDataChange(business);
+    handleDataChange(data);
   }, [isLoading]);
 
   return (
