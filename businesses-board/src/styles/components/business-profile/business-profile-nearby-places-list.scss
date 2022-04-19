@@ -4,8 +4,10 @@
 
 .business-profile-nearby-places-list {
     display: grid;
+    grid-gap: 80px;
     grid-row-gap: 5px;
     padding: 0;
+    overflow: hidden;
 
     &-item {
         display: grid;
@@ -16,7 +18,6 @@
         @include for-desktop-up {
             grid-auto-flow: column;
             grid-row-gap: 0;
-            grid-template-columns: 200px max-content;
         }
 
         &-name,
