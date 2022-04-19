@@ -26,10 +26,10 @@ const BusinessProfileNearbyPlacesList: React.FC<StoreState> = (
             className="business-profile-nearby-places-list-item"
           >
             <article className="business-profile-nearby-places-list-item-name">
-              <ContentLoading text={name} />
+              {name}
             </article>
             <article className="business-profile-nearby-places-list-item-description">
-              <ContentLoading text={description} />
+              {description}
             </article>
           </li>
         ))

@@ -6,18 +6,16 @@ import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { Profile } from '../../types/business-profile';
 
-import ContentLoading from '../content-loading';
-
 const BusinessProfileContact: React.FC<Profile> = ({ profile: { phone, email } }) => (
   <section className="business-profile-contact">
     <h4 className="business-profile-contact-title">
-      <ContentLoading text="Contact" />
+      Contact
     </h4>
     <article className="business-profile-contact-phone">
-      <ContentLoading text={phone} />
+      {phone}
     </article>
     <article className="business-profile-contact-email">
-      <ContentLoading text={email} />
+      {email}
     </article>
   </section>
 );

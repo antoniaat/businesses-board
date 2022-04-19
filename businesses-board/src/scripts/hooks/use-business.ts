@@ -3,7 +3,7 @@ import axios from 'axios';
 import { defaultBusinessData } from '../utils/constants';
 import { Business } from '../types/business';
 
-const getBusinessesEndpoint = 'https://api.jsonbin.io/b/60215a7906934b65f530333a';
+const getBusinessesEndpoint = 'https://api.jsonbin.io/b/625eb6da80883c3054e3915e/1';
 
 interface ServerResponseProps {
   isLoading: boolean;

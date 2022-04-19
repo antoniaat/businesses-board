@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { Profile } from '../../types/business-profile';
 
-import ContentLoading from '../content-loading';
-
 const BusinessProfileAddress: React.FC<Profile> = ({ profile: { address } }) => {
   const {
     number, street, country, zip,
@@ -18,14 +16,12 @@ const BusinessProfileAddress: React.FC<Profile> = ({ profile: { address } }) => 
 
   return (
     <section className="business-profile-address">
-      <h4 className="business-profile-address-title">
-        <ContentLoading text="Address" />
-      </h4>
+      <h4 className="business-profile-address-title">Address</h4>
       <article className="business-profile-address-street">
-        <ContentLoading text={streetText} />
+        {streetText}
       </article>
       <article className="business-profile-address-country">
-        <ContentLoading text={countryText} />
+        {countryText}
       </article>
     </section>
   );

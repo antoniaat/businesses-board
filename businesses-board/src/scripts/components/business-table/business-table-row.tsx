@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 
 import { StoreState } from '../../redux/reducers';
 
-import ContentLoading from '../content-loading';
-
 interface Props {
   id: string,
   name: string,
@@ -30,10 +28,10 @@ const BusinessTableRow: React.FC<Props> = ({ id, name, description }) => {
       onClick={handleOnClick}
     >
       <td className="business-table-row-cell">
-        <ContentLoading text={name} />
+        {name}
       </td>
       <td className="business-table-row-cell">
-        <ContentLoading text={description} />
+        {description}
       </td>
     </tr>
   );
