@@ -3,7 +3,11 @@
 .navigation {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    padding: 25px;
     background: $white;
     box-shadow: 0px -2px 6px 0px $gray-200;
+
+    img {
+        max-width: 280px;
+    }
 }
