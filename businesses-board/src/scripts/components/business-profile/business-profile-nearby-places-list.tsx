@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { getNearbyPlaces } from '../../utils/utils';
 
-import ContentLoading from '../content-loading';
-
 const BusinessProfileNearbyPlacesList: React.FC<StoreState> = (
   {
     data,
