@@ -1,14 +1,19 @@
 @import '../../base/tools/variables.scss';
 
 .business-profile-contact {
-   &-title {
-       font-size: 30px;
-       font-weight: normal;
-       margin: 30px auto;
-   }
+    background: $white;
+    border-radius: 2px;
+    box-shadow: $primary-box-shadow;
+    padding: 0 20px;
 
-   &-phone,
-   &-email {
-       color: $gray-700;
-   }
+    &-title {
+        font-size: 30px;
+        font-weight: normal;
+        margin: 30px auto;
+    }
+
+    &-phone,
+    &-email {
+        color: $gray-700;
+    }
 }

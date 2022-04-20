@@ -1,9 +1,10 @@
 @import "../../base/tools/variables.scss";
 
 .business-table {
-    width: 90%;
-    margin: 20px auto;
+    width: 60%;
+    margin: 60px auto;
     border-radius: 4px;
     box-shadow: $primary-box-shadow;
+    border: 1px solid $gray-100;
     border-collapse: collapse;
 }

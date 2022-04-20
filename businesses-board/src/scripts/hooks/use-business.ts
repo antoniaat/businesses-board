@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Business } from '../types/business';
 
-const getBusinessesEndpoint = 'https://api.jsonbin.io/b/625eb6da80883c3054e3915e/12';
+const getBusinessesEndpoint = 'https://api.jsonbin.io/b/625eb6da80883c3054e3915e/13';
 
 interface ServerResponseProps {
   data: Business[];

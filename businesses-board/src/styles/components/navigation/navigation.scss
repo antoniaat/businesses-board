@@ -5,7 +5,7 @@
     justify-content: center;
     padding: 25px;
     background: $white;
-    box-shadow: 0px -2px 6px 0px $gray-200;
+    box-shadow: $primary-box-shadow;
 
     img {
         max-width: 280px;

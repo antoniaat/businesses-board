@@ -9,18 +9,12 @@
 
     &-content {
         display: grid;
-        max-width: 92%;
-        margin: 20px auto;
-        grid-row-gap: 30px;
-
-        @include for-tablet-landscape-up {
-            grid-column-gap: 30px;
-        }
+        max-width: 90%;
+        margin: 20px auto 90px auto;
+        grid-gap: 40px;
 
         @include for-desktop-up {
-            grid-template-columns: 1fr 1fr 2fr;
-            grid-column-gap: 0;
-            grid-row-gap: 0;
+            grid-template-columns: 1fr 3fr 1fr;
         }
     }
 }

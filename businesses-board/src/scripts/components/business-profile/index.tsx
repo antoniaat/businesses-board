@@ -31,8 +31,8 @@ const BusinessProfile: React.FC<Props> = ({ data }) => {
       <BusinessProfileImage />
       <section className="business-profile-content">
         <BusinessProfileAddress />
-        <BusinessProfileContact />
         <BusinessProfileNearbyPlaces />
+        <BusinessProfileContact />
       </section>
     </main>
   );
