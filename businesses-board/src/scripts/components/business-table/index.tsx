@@ -18,14 +18,15 @@ const BusinessTable: React.FC<Props> = ({ data }) => (
     <BusinessTableHeader />
     <tbody className="business-table-content">
       {
-          data.map(({ id, name, description }) => (
-            <BusinessTableRow
-              id={id}
-              name={name}
-              description={description}
-            />
-          ))
-        }
+        data.map(({ id, name, description }) => (
+          <BusinessTableRow
+            key={id}
+            id={id}
+            name={name}
+            description={description}
+          />
+        ))
+      }
     </tbody>
   </table>
 );

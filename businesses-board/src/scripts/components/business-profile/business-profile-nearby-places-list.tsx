@@ -18,16 +18,13 @@ const BusinessProfileNearbyPlacesList: React.FC<StoreState> = (
   return (
     <ul className="business-profile-nearby-places-list">
       {
-        nearbyPlaces.map(({ id: placeId, name, description }) => (
+        nearbyPlaces.map(({ id: placeId, description }) => (
           <li
             key={placeId}
             className="business-profile-nearby-places-list-item"
           >
-            <article className="business-profile-nearby-places-list-item-name">
-              {name}
-            </article>
             <article className="business-profile-nearby-places-list-item-description">
-              {description}
+               {description}
             </article>
           </li>
         ))

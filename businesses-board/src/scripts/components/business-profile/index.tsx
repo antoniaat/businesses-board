@@ -14,19 +14,17 @@ import BusinessProfileImage from './business-profile-image';
 import BusinessProfileAddress from './business-profile-address';
 import BusinessProfileContact from './business-profile-contact';
 
-interface Props { isLoading: boolean, data: Business[] }
+interface Props { data: Business[] }
 
-const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
+const BusinessProfile: React.FC<Props> = ({ data }) => {
   const dispatch = useDispatch();
   const params: { id: string } = useParams();
   const { id } = params;
 
   useEffect(() => {
-    if (!isLoading) {
-      const profile = getById(id, data);
-      dispatch(setProfile({ payload: profile }));
-    }
-  }, [isLoading]);
+    const profile = getById(id, data);
+    dispatch(setProfile({ payload: profile }));
+  }, []);
 
   return (
     <main className="business-profile">
@@ -41,7 +39,6 @@ const BusinessProfile: React.FC<Props> = ({ isLoading, data }) => {
 };
 
 const mapStateToProps = (state: StoreState) => ({
-  isLoading: state.isLoading,
   data: state.data,
 });
 

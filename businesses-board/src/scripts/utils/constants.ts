@@ -1,6 +1,6 @@
 import { Business } from '../types/business';
 
-const emptyBusiness = {
+const emptyBusiness: Business = {
   id: '',
   name: '',
   description: '',
@@ -16,6 +16,4 @@ const emptyBusiness = {
   },
 };
 
-const defaultBusinessData: Business[] = new Array(10).fill(emptyBusiness);
-
-export { emptyBusiness, defaultBusinessData };
+export { emptyBusiness };
